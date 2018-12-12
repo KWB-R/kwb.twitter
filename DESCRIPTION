@@ -1,0 +1,8 @@
+Package: kwb.twitter
+Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
+Author: Hauke Sonnenberg
+Version: 0.0.99
+Depends: twitteR, htmltools, RCurl, XML, kwb.utils
+License: GPL
+Title: simplify access to Twitter messages
+Description: simplify access to Twitter messages

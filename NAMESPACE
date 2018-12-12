@@ -1,0 +1,6 @@
+import(twitteR)
+import(htmltools)
+import(RCurl)
+import(XML)
+import(kwb.utils)
+exportPattern(".*")
