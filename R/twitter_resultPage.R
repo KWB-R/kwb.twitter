@@ -1,3 +1,5 @@
+#### NEEDS TO BE REFACTORED IN ORDER TO WORK WITH "rtweet" PACKAGE 
+if(FALSE) {
 # showSearchResults ------------------------------------------------------------
 showSearchResults <- function # showSearchResults
 ### showSearchResults
@@ -306,4 +308,6 @@ openContainedUrls <- function # openContainedUrls
 )
 {
   sapply(containedUrls(messages), FUN = browseURL)
+}
+
 }

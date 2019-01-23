@@ -1,0 +1,96 @@
+---
+title: "KWB Tweets"
+author: "Michael Rustler"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{KWB Tweets}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+```
+
+```{r prepare_token, echo = FALSE}
+to_eval <- FALSE
+
+twitter_vars <- sprintf("twitter_%s",
+                          c("app",
+                            "consumer_key", 
+                            "consumer_secret", 
+                            "access_token",
+                            "access_secret"))
+  
+is_not_defined <- Sys.getenv(twitter_vars) == ""
+
+if(all(is_not_defined)) {
+  
+  if(file.exists("secrets.csv")) {
+ secrets <- as.vector(read.csv("secrets.csv")) 
+
+Sys.setenv("twitter_app" = secrets$twitter_app,
+           "twitter_consumer_key" = secrets$twitter_consumer_key, 
+           "twitter_consumer_secret" = secrets$twitter_consumer_secret,
+           "twitter_access_token" = secrets$twitter_access_token, 
+           "twitter_access_secret" = secrets$twitter_access_secret)
+ to_eval <- TRUE 
+}}  else if (!all(is_not_defined)) {
+ to_eval <- TRUE   
+} else {
+  to_eval <- FALSE
+}
+```
+
+## Create Twitter Token
+
+
+```{r, eval = to_eval}
+twitter_token <- kwb.twitter::create_twitter_token()
+```
+
+
+## Get Data For KWB Tweeters
+
+
+```{r, eval = to_eval}
+users <- c("CLoderer", "kompetenzwasser", "MichaelRustler", "KWBerlin_R", 
+           "nutrient_rec", "rgnirss", "UlfMiehe")
+
+kwb_tweeters <- rtweet::lookup_users(users, token = twitter_token)
+
+## preview users data
+kwb_tweeters 
+
+kwb_timelines <- rtweet::get_timelines(users, 
+                                       n = 3200,
+                                       token = twitter_token)
+
+
+table(kwb_timelines$screen_name)
+
+```
+
+## Plot Tweet Timeline Per Tweeter
+
+```{r, eval = to_eval, fig.height= 10, fig.width = 7}
+
+kwb.twitter::plot_timelines_per_tweeter(timelines = kwb_timelines) 
+
+```
+
+
+```{r, eval = to_eval}
+## get user IDs of accounts followed by kwb
+kwb_follows <- rtweet::get_friends("kompetenzwasser", token = twitter_token)
+## get user IDs of accounts followed by CNN
+kwb_followers <- rtweet::get_followers("kompetenzwasser", token = twitter_token)
+kwb_followers_info <- rtweet::lookup_users(kwb_followers$user_id,token = twitter_token)
+# extract most recent tweets data from the famous tweeters
+kwb_tweets <- rtweet::tweets_data(kwb_tweeters)
+```

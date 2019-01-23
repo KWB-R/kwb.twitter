@@ -1,3 +1,6 @@
+#### NEEDS TO BE REFACTORED IN ORDER TO WORK WITH "rtweet" PACKAGE 
+if(FALSE) {
+  
 # getAllTweets -----------------------------------------------------------------
 getAllTweets <- structure(
   function # getAllTweets
@@ -155,3 +158,4 @@ getTweets <- structure(function # getTweets
   showSearchResults(tweets)
 })
 
+}

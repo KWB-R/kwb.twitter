@@ -1,3 +1,6 @@
+#### NEEDS TO BE REFACTORED IN ORDER TO WORK WITH "rtweet" PACKAGE 
+if(FALSE) {
+  
 # authenticate -----------------------------------------------------------------
 authenticate <- function # authenticate
 ### authenticate
@@ -71,4 +74,6 @@ createKeyAndPasswordFiles <- function # createKeyAndPasswordFiles
       passwordFile = passwordFiles[[account]]
     )
   }
+}
+
 }

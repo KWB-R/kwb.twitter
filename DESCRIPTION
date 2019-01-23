@@ -1,8 +1,39 @@
 Package: kwb.twitter
-Maintainer: Hauke Sonnenberg <hauke.sonnenberg@kompetenz-wasser.de>
-Author: Hauke Sonnenberg
-Version: 0.0.99
-Depends: twitteR, htmltools, RCurl, XML, kwb.utils
-License: GPL
-Title: simplify access to Twitter messages
-Description: simplify access to Twitter messages
+Title: Simplify Access to Twitter Messages
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Hauke",
+             family = "Sonnenberg",
+             role = c("aut", "cre"),
+             email = "hauke.sonnenberg@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0001-9134-2871")),
+      person(given = "Michael",
+             family = "Rustler",
+             role = "aut",
+             email = "michael.rustler@kompetenz-wasser.de",
+             comment = c(ORCID = "0000-0003-0647-7726")),
+      person(given = "Kompetenzzentrum Wasser Berlin gGmbH (KWB)",
+             role = "cph"))
+Description: Simplify access to Twitter messages.
+License: MIT + file LICENSE
+URL: https://github.com/KWB-R/kwb.twitter
+BugReports: https://github.com/KWB-R/kwb.twitter/issues
+Depends:
+    R (>= 2.10)
+Imports: 
+    dplyr,
+    ggplot2,
+    lubridate,
+    magrittr, 
+    rlang,
+    rtweet
+Suggests: 
+    covr,
+    knitr,
+    rmarkdown
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1

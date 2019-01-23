@@ -1,3 +1,5 @@
+#### NEEDS TO BE REFACTORED IN ORDER TO WORK WITH "rtweet" PACKAGE 
+if(FALSE) {
 # addressesToGeocodes ----------------------------------------------------------
 addressesToGeocodes <- function # addressesToGeocodes
 ### addressesToGeocodes
@@ -58,3 +60,4 @@ getGeocode <- structure(function # getGeocode
   ## You get a warning if the address is ambiguous
   getGeocode("New York, World Trade Center")
 })
+}
