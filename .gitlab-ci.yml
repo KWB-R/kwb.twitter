@@ -19,8 +19,9 @@ before_script:
 pages:
   script:
     - R -e "pkgdown::build_site()"
+    - mv docs public
   artifacts:
     paths:
-      - docs
+      - public
   only:
-    - master
+  - master
