@@ -4,6 +4,10 @@ on:
       - main
       - master
       - dev
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Run this job every day at 04:00 a.m UTC ('0 5 * * *')
+    - cron:  '0 4 * * *'
 
 name: pkgdown
 
@@ -12,6 +16,11 @@ jobs:
     runs-on: macOS-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      twitter_app: ${{ secrets.twitter_app }}
+      twitter_access_secret: ${{ secrets.twitter_access_secret }}
+      twitter_access_token: ${{ secrets.twitter_access_token }}
+      twitter_consumer_key: ${{ secrets.twitter_consumer_key }}
+      twitter_consumer_secret:: ${{ secrets.twitter_consumer_secret }}
     steps:
       - uses: actions/checkout@v2
 
