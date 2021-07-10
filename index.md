@@ -4,8 +4,6 @@
 [![Project Status](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/kwb.twitter)]()
 
-# kwb.twitter
-
 Simplify access to Twitter messages.
 
 ## Installation
@@ -27,9 +25,3 @@ if (! require("remotes")) {
 # Install KWB package 'kwb.twitter' from GitHub
 remotes::install_github("KWB-R/kwb.twitter")
 ```
-
-## Documentation
-
-Release: [https://kwb-r.github.io/kwb.twitter](https://kwb-r.github.io/kwb.twitter)
-
-Development: [https://kwb-r.github.io/kwb.twitter/dev](https://kwb-r.github.io/kwb.twitter/dev)

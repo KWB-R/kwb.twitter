@@ -11,3 +11,5 @@
 ^README\.md$
 ^index\.Rmd$
 ^R/\.setup\.R$
+^\.github$
+^index\.md$
