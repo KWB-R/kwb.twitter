@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 ```
 
-```{r prepare_token, echo = FALSE}
+```{r prepare_token, eval = TRUE, echo = FALSE}
 to_eval <- FALSE
 
 twitter_vars <- sprintf("twitter_%s",
