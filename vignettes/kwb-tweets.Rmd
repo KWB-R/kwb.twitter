@@ -52,13 +52,14 @@ Sys.setenv("twitter_app" = secrets$twitter_app,
 
 ```{r, eval = to_eval}
 twitter_token <- kwb.twitter::create_twitter_token()
+rtweet:::rate_limit(token = twitter_token)
 ```
 
 
 ## Get Data For KWB Tweeters
 
 
-```{r, eval = to_eval}
+```{r, eval = FALSE}
 users <- c("CLoderer", "kompetenzwasser", "MichaelRustler", "KWBerlin_R", 
            "nutrient_rec", "rgnirss", "UlfMiehe")
 
@@ -78,7 +79,7 @@ table(kwb_timelines$screen_name)
 
 ## Plot Tweet Timeline Per Tweeter
 
-```{r, eval = to_eval, fig.height= 10, fig.width = 7}
+```{r, eval = FALSE, fig.height= 10, fig.width = 7}
 
 kwb.twitter::plot_timelines_per_tweeter(timelines = kwb_timelines) 
 
@@ -93,4 +94,5 @@ kwb_followers <- rtweet::get_followers("kompetenzwasser", token = twitter_token)
 kwb_followers_info <- rtweet::lookup_users(kwb_followers$user_id,token = twitter_token)
 # extract most recent tweets data from the famous tweeters
 kwb_tweets <- rtweet::tweets_data(kwb_tweeters)
+rtweet:::rate_limit(token = twitter_token)
 ```
