@@ -50,7 +50,7 @@ Sys.setenv("twitter_app" = secrets$twitter_app,
 ## Create Twitter Token
 
 
-```{r, eval = to_eval}
+```{r, eval = FALSE}
 twitter_token <- kwb.twitter::create_twitter_token()
 rtweet:::rate_limit(token = twitter_token)
 ```
