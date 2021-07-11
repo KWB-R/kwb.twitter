@@ -86,7 +86,7 @@ kwb.twitter::plot_timelines_per_tweeter(timelines = kwb_timelines)
 ```
 
 
-```{r, eval = to_eval}
+```{r, eval = FALSE}
 ## get user IDs of accounts followed by kwb
 kwb_follows <- rtweet::get_friends("kompetenzwasser", token = twitter_token)
 ## get user IDs of accounts followed by CNN
